@@ -1,3 +1,12 @@
+"""
+inout.py
+
+first homework assignment
+
+"""
+
+
+
 import sys
 
 total = 0
@@ -9,4 +18,4 @@ while True:
     except ValueError:
         print("BAD VALUE! EXITING NOW!!!" )
         sys.exit(1)
-    print("you have ",total," so far")
+    print("you have ",total," ladybugs so far")
