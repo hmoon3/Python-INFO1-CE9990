@@ -18,4 +18,4 @@ while True:
     except ValueError:
         print("BAD VALUE! EXITING NOW!!!" )
         sys.exit(1)
-    print("you have ",total," ladybugs so far")
+    print("you have", total, "ladybugs so far")
