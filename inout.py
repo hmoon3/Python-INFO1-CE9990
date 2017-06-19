@@ -5,8 +5,6 @@ first homework assignment
 
 """
 
-
-
 import sys
 
 total = 0
