@@ -13,8 +13,8 @@ total = 0
 while True:
     lb = input("How many ladybugs are there? ")
     try:
-        lb = int(lb) 
-        total = total + lb
+        lb = int(float(lb)) 
+        total += lb
     except ValueError:
         print("BAD VALUE! EXITING NOW!!!" )
         sys.exit(1)
