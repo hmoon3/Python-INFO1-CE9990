@@ -21,13 +21,17 @@ if rows == 0 or columns == 0 or rs == 0 or cs == 0:
     
 while rows > 0:
     tc = 0
-    while tc <= columns:
-        print("+", rs * "-", sep = "", end = "")
+    while tc < columns:
+        print("+", cs * "-", sep = "", end = "")
         tc += 1
     print()
-    ttc = 0
-    while ttc <= columns:
-        print("!", rs * " ", sep = "", end = "")
-        ttc += 1
-    print()
+    tcs = 0
+    while tcs < rs:
+        ttc = 0
+        while ttc < columns:
+            print("!", cs * " ", sep = "", end = "")
+            ttc += 1
+        print()
+        tcs += 1
     rows -= 1
+
