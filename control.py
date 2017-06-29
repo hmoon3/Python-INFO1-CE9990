@@ -1,7 +1,7 @@
 """
 control.py
 assignment #2
-utilizing if statements check if a user provided name signed the Delaration of Independence
+utilizing if statements check if a user provided name signed the Declaration of Independence
 """
 
 import sys
