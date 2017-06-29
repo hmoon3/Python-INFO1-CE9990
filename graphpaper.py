@@ -14,9 +14,10 @@ try:
     cs = int(input("How many columns of spaces in each box (e.g., 3)? "))
 except ValueError:
     print("ERROR. That is not a valid number" )
+    sys.exit(1)
 
 if rows == 0 or columns == 0 or rs == 0 or cs == 0:
-    print("ERROR. You cannot have a blank value")
+    print("ERROR. You cannot have a zero value")
     sys.exit(1)
     
 while rows > 0:
@@ -29,9 +30,10 @@ while rows > 0:
     while tcs < rs:
         ttc = 0
         while ttc < columns:
-            print("!", cs * " ", sep = "", end = "")
+            print("|", cs * " ", sep = "", end = "")
             ttc += 1
         print()
         tcs += 1
     rows -= 1
 
+sys.exit(1)
