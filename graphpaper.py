@@ -36,4 +36,4 @@ while rows > 0:
         tcs += 1
     rows -= 1
 
-sys.exit(1)
+sys.exit(0)
