@@ -13,12 +13,9 @@ if sentence == "":
     print("You must input something! ")
     sys.exit(1)
 
-x = 1
-for letters in sentence:
-    if letters == " ":
-        x += 1
+x = sentence.count(" ")
 
-print("There are", x, "words in your sentence.", end = "") 
+print("There are", x + 1, "words in your sentence.", end = "") 
 
 sys.exit(0)
 
