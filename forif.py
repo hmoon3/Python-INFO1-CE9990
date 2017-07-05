@@ -10,12 +10,17 @@ import sys
 sentence = input("Please provide a sentence: ")
 
 if sentence == "":
-    print("You must input something! ")
+    print("You must input something!")
     sys.exit(1)
 
-x = sentence.count(" ")
+n = sentence.count(" ")
+vowels = 0
+for character in sentence:
+    if character in "aeiouy":
+        vowels += 1
 
-print("There are", x + 1, "words in your sentence.", end = "") 
+print("There are", n + 1, "words in your sentence.")
+print("There are", vowels, "vowels in your sentence.")
 
 sys.exit(0)
 
