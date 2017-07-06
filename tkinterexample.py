@@ -10,7 +10,7 @@ import tkinter
 
 
 height = 280
-width = 370
+width = int(height * 37/38)
 
 def drawPixel(x, y, color):
     """
@@ -28,16 +28,10 @@ root.title ("Denmark")
 root.geometry(str(width) + "x" + str(height))
 canvas = tkinter.Canvas(root, highlightthickness = 0, background = red)
 
-
-y = 0
-while y < height:
-    x = 0
-    while x < width:
-        if (x > 120 and x < 160) or (y > 120 and y < 160):
-            drawPixel(x, y, white)
-        x += 1
-    y += 1
-
+for y in range(height):
+    for x in range(width):
+        if x > int(height * 3/7) and x < int(height * 4/7) or y > int(height * 3/7) and y < int(height * 4/7):
+            drawPixel(x, y, white)    
 
 canvas.pack(expand = tkinter.YES, fill = "both")
 root.mainloop()
