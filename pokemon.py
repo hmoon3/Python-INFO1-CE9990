@@ -19,7 +19,7 @@ except FileNotFoundError:
     print("ERROR! File not found.")
     sys.exit(1)
 except PermissionError:
-    print("ERROR! You do not have permission to accesss this file.")
+    print("ERROR! You do not have permission to access this file.")
     sys.exit(1)
 
 pokedex = []
@@ -55,7 +55,7 @@ def sortPokedex(initial):
     a) numerical order(low to high)
     b) numerical(high to low)
     c) alphabetical(a-z)
-    d) alphabetical(z-a): """"
+    d) alphabetical(z-a): """
     query = input(prompt)
     try:
         sorter(*dictionary[query])
