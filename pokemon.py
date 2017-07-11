@@ -39,20 +39,22 @@ def sorter(alpha, reverse):
         twoColumns.reverse()
     for (i, pokemon) in twoColumns:
         print("#{:03} {}".format(i, pokemon))
+#Each key is a string containing one character.
+#Each value is a tuple containing two bools.
 
+dictionary = {
+    'a': (False, False), #ascending numeric
+    'b': (False, True),  #descending numeric
+    'c': (True, False),  #ascending alphabetical
+    'd': (True, True)    #descending alphabetical
+}
 
 def sortPokedex(initial):
     query = input("How do you want to sort your pokédex? a) numerical order(low to high) b) numerical(high to low) c) alphabetical(a-z) d) alphabetical(z-a): ")
-    if query == "a":
-        sorter(False, False) #ascending numeric
-    elif query == "b":
-        sorter(False, True) #descending numeric
-    elif query == "c":
-        sorter(True, False) #ascending alphabetical
-    elif query == "d":
-        sorter(True, True) #descending alphabetical
-    else:
-        print("ERROR! Bad entry")
+    try:
+        sorter(*dictionary[query])
+    except KeyError:
+        print("Bad entry", query)
         sys.exit(1)
 
 def searchPokedex():
