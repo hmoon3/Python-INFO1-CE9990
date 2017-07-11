@@ -18,6 +18,9 @@ try:
 except FileNotFoundError:
     print("ERROR! File not found.")
     sys.exit(1)
+except PermissionError:
+    print("ERROR! You do not have permission to acesss this file.")
+    sys.exit(1)
 
 pokedex = []
 
@@ -27,43 +30,28 @@ for line in kanto:
     
 kanto.close()
 
-def ascending():
-    #prints pokémon in ascending numerical order
-    print("Pokémon in ascending numerical order:")
-    for i, pokemon in enumerate(pokedex, start = 1):
-        print("#"+"{:03} {}".format(i, pokemon))
-        
-def descending():
-    #prints pokémon in descending numerical order
-    reversedPokedex = reversed(pokedex)
-    print("Pokémon in descending numerical order:")
-    for pokemon in reversedPokedex:
-        print("#"+"{:03} {}".format(pokedex.index(pokemon) + 1, pokemon))
+def sorter(alpha, reverse):
+    #twoColumns is a list of tuples (i.e., a list of pairs).
+    twoColumns = [(i, pokemon) for (i, pokemon) in enumerate(pokedex,
+start = 1)]
+    if alpha:
+        twoColumns.sort(key = lambda t: t[1])
+    if reverse:
+        twoColumns.reverse()
+    for (i, pokemon) in twoColumns:
+        print("#{:03} {}".format(i, pokemon))
 
-def alpha():
-    #prints pokémon in alphabetical order
-    sortedPokedex = sorted(pokedex)
-    print("Pokémon sorted in alphabetical order:")    
-    for pokemon in sortedPokedex:
-        print("#"+"{:03} {}".format(pokedex.index(pokemon) + 1, pokemon))
-     
-def reverseAlpha():
-    #prints pokémon in reverse alphabetical order
-    reversedAlphadex = reversed(sorted(pokedex))
-    print("Pokémon in reverse alphabetical order")
-    for pokemon in reversedAlphadex:
-        print("#"+"{:03} {}".format(pokedex.index(pokemon) + 1, pokemon))
 
 def sortPokedex(initial):
     query = input("How do you want to sort your pokédex? a) numerical order(low to high) b) numerical(high to low) c) alphabetical(a-z) d) alphabetical(z-a): ")
     if query == "a":
-        ascending()
+        sorter(False, False) #ascending numeric
     elif query == "b":
-        descending()
+        sorter(False, True) #descending numeric
     elif query == "c":
-        alpha()
+        sorter(True, False) #ascending alphabetical
     elif query == "d":
-        reverseAlpha()
+        sorter(True, True) #descending alphabetical
     else:
         print("ERROR! Bad entry")
         sys.exit(1)
