@@ -32,8 +32,7 @@ kanto.close()
 
 def sorter(alpha, reverse):
     #twoColumns is a list of tuples (i.e., a list of pairs).
-    twoColumns = [(i, pokemon) for (i, pokemon) in enumerate(pokedex,
-start = 1)]
+    twoColumns = [(i, pokemon) for (i, pokemon) in enumerate(pokedex, start = 1)]
     if alpha:
         twoColumns.sort(key = lambda t: t[1])
     if reverse:
