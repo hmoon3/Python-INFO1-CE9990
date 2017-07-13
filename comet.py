@@ -55,16 +55,15 @@ def verse(n):
 
 def stanza(n):
     #prints the increasing stanzas
-    for i in range(n,0,-1):
-        if person[-i] == "Andrey":
-            print("and", person[-i] + role[-i])
-        else:
-            print(person[-i] + role[-i])
+    for i in range(-n, 0):    #i counts up from -n to -1.
+        if person[i] == "Andrey":
+            print("and ", end = "")
+        print(person[i] + role[i])
     print()
 
 person = [
     "Pierre",
-    "All",
+    "All", 
     "Balaga",
     "Bolkonsky",
     "Mary",
@@ -91,6 +90,8 @@ role = [
     " isn't here"
     ]
 
+n = len(role)
+
 desc = [
     "She loves Andrey with all her heart",
     "Natasha's cousin and closest friend",
@@ -105,45 +106,42 @@ for i in range(2):
     intro()
 
 chorus()
-
-j = 2 
+ 
 for i in range(len(role), 1, -1):
+    if person[i] != "Natasha" and person[i] != "Anatole" and person[i] != "Bolkonsky":
+        singer(i)
     if person[i] == "Natasha":
         print(person[i] + "!")
         print()
         singer(i)
         print(person[i], "is young")
-        verse(j-2)
-        stanza(j) #can't put stanza at end of loop because not all verses follow the same structure
-    if person[i] == "Sonya":
-        singer(i)
+        verse(n-i)
+        stanza(n-i+2)
+    elif person[i] == "Sonya":
         print(person[i], "is good")
-        verse(j-2)
-        stanza(j)
-    if person[i] == "Marya":
-        singer(i)
+        verse(n-i)
+        stanza(n-i+2)
+    elif person[i] == "Marya":
         print(person[i], "is oldschool")
         print("A grande dame of Moscow")
-        verse(j-2)
-        stanza(j)
+        verse(n-i)
+        stanza(n-i+2)
         chorus()
-    if person[i] == "Anatole":
+    elif person[i] == "Anatole":
         print(person[i] + "!")
         print()
         singer(i)
         print(person[i], "is hot")
-        verse(j-2)
-        stanza(j)
-    if person[i] == "Hélène":
-        singer(i)
+        verse(n-i)
+        stanza(n-i+2)
+    elif person[i] == "Hélène":        
         print(person[i], "is a slut")
-        verse(j-2)
-        stanza(j)
-    if person[i] == "Dolokhov":
-        singer(i)
+        verse(n-i)
+        stanza(n-i+2)
+    elif person[i] == "Dolokhov":        
         print(person[i], "is fierce, but not too important")
-        verse(j-2)
-        stanza(j)
+        verse(n-i)
+        stanza(n-i+2)
         print("Chandeliers and caviar, the war can’t touch us here")
         print()
         print("Minor characters!")
@@ -151,23 +149,22 @@ for i in range(len(role), 1, -1):
         singer(i-2)  #need to place here because Bolksonsky and Mary switch places in the verses
         print("Old Prince Bolkonsky is crazy")
         print()
-    if person[i] == "Mary":
-        singer(i)
+    elif person[i] == "Mary":        
         print("And Mary is plain")
         print()
         print("[ ", person[i].upper(), "&", person[i-1].upper(), " ]")
         print("Andrey’s family")
         print("Totally messed up")
         print()
-    if person[i] == "Balaga":
-        singer(i)
+    elif person[i] == "Balaga":        
         print("And Balaga’s just for fun!")
         print()
         singer(1)
         print("Balaga’s just for fun!")
         print()
-        stanza(j)
-    j += 1
+        stanza(n)
+    elif person[i] != "Marya" and person[i] != "Dolokhov" and person[i] != "Mary" and person[i] != "Bolkonsky":
+        stanza(n - i + 1)
 
 pierre()
 print("Dear, bewildered and awkward Pierre?")
