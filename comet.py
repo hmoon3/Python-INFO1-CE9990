@@ -116,11 +116,9 @@ for i in range(len(role), 1, -1):
         singer(i)
         print(person[i], "is young")
         verse(n-i)
-        stanza(n-i+2)
     elif person[i] == "Sonya":
         print(person[i], "is good")
         verse(n-i)
-        stanza(n-i+2)
     elif person[i] == "Marya":
         print(person[i], "is oldschool")
         print("A grande dame of Moscow")
@@ -133,11 +131,9 @@ for i in range(len(role), 1, -1):
         singer(i)
         print(person[i], "is hot")
         verse(n-i)
-        stanza(n-i+2)
     elif person[i] == "Hélène":        
         print(person[i], "is a slut")
         verse(n-i)
-        stanza(n-i+2)
     elif person[i] == "Dolokhov":        
         print(person[i], "is fierce, but not too important")
         verse(n-i)
@@ -162,9 +158,8 @@ for i in range(len(role), 1, -1):
         singer(1)
         print("Balaga’s just for fun!")
         print()
-        stanza(n)
     elif person[i] != "Marya" and person[i] != "Dolokhov" and person[i] != "Mary" and person[i] != "Bolkonsky":
-        stanza(n - i + 1)
+        stanza(n - i + 2)
 
 pierre()
 print("Dear, bewildered and awkward Pierre?")
