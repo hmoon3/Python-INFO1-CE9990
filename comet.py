@@ -158,7 +158,7 @@ for i in range(len(role), 1, -1):
         singer(1)
         print("Balaga’s just for fun!")
         print()
-    elif person[i] != "Marya" and person[i] != "Dolokhov" and person[i] != "Mary" and person[i] != "Bolkonsky":
+    if person[i] != "Marya" and person[i] != "Dolokhov" and person[i] != "Mary" and person[i] != "Bolkonsky":
         stanza(n - i + 2)
 
 pierre()
