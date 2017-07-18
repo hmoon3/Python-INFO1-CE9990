@@ -12,7 +12,6 @@ import csv
 import re
 
 file = "/Users/Username/Desktop/roster.csv"
-roster = []
 
 try:
     csvfile = open(file, 'r', encoding='utf-8')
@@ -35,32 +34,24 @@ country = {
     "no": "Norway"
     }
     
-def name(n):
-    # the name field in the csv file has a weird abbreviation at the end that needs to be removed
-    name = roster[n][1].split("\\")
-    return name[0]
- 
-def formatOutput(n):
+def formatOutput(line):
     #format the output to print only a few select fields
-    print("Name: ", name(n))
-    print("Number: ", roster[n][0])
-    print("Position: ", roster[n][3])
-    print("Shoots/catches: ", roster[n][7])
-    print("Country: ", country[roster[n][2]]) #added a dictionary because country abbreviation was not easily readable 
-    print("Summary: ", roster[n][-1])
+    print("Name: ", line[1].split("\\")[0])
+    print("Number: ", line[0])
+    print("Position: ", line[3])
+    print("Shoots/catches: ", line[7])
+    print("Country: ", country[line[2]]) #added a dictionary because country abbreviation was not easily readable
+    print("Summary: ", line[-1])
     print()
-    
+   
 lines = csv.reader(csvfile, delimiter = ",")
-          
-for line in lines:
-    #build our list of lists from the csv file
-    roster.append(line)
-          
-csvfile.close()
 
+roster = [line for line in lines]          
+csvfile.close()
+roster = roster[1:]
 print("The 2016-17 New York Rangers were:")
 
-for i in range(len(roster) - 1):  #first line in the csv is actually the field descriptions so need to offset by one
-          formatOutput(i+1)
+for line in roster:
+    formatOutput(line)
 
 sys.exit(0)
