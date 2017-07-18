@@ -48,7 +48,7 @@ lines = csv.reader(csvfile, delimiter = ",")
 
 roster = [line for line in lines]          
 csvfile.close()
-roster = roster[1:]
+roster = roster[1:]  #The first line is just field descriptions.  Chop it off.
 print("The 2016-17 New York Rangers were:")
 
 for line in roster:
