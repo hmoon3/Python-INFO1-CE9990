@@ -44,14 +44,11 @@ def formatOutput(line):
     print("Summary: ", line[-1])
     print()
    
-lines = csv.reader(csvfile, delimiter = ",")
-
-roster = [line for line in lines]          
+lines = [line for line in csv.reader(csvfile)][1:]   #Chop off the first line. we don't need it
 csvfile.close()
-roster = roster[1:]  #The first line is just field descriptions.  Chop it off.
 print("The 2016-17 New York Rangers were:")
 
-for line in roster:
+for line in lines:
     formatOutput(line)
 
 sys.exit(0)
