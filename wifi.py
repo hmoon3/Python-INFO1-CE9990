@@ -9,7 +9,7 @@ import sys
 import csv
 import urllib.request
 
-url = "https://data.cityofnewyork.us/api/views/yjub-udmw/rows.csv?accessType=DOWNLOAD" \
+url = "https://data.cityofnewyork.us/api/views/yjub-udmw/rows.csv?accessType=DOWNLOAD" 
      
 try:
     lines = urllib.request.urlopen(url)
@@ -55,7 +55,7 @@ for line in lines:
         sys.exit(1)
     r = csv.reader([s])         #[s] is a list containing one string
     fields = next(r)
-    if fields[1] == borough[boroname] and street in fields[5]:
+    if fields[1] == borough[boroname] and street in fields[5]:  
         wifi.append(fields)
 
 lines.close() 
