@@ -35,13 +35,14 @@ borough = {
         }
 
 prompt = """\
-    What is your borough?
-    a) Manhattan
-    b) Bronx
-    c) Queens
-    d) Brooklyn
-    e) Staten Island    
-    """
+What is your borough?
+a) Manhattan
+b) Bronx
+c) Queens
+d) Brooklyn
+e) Staten Island    
+"""
+
 boroname = input(prompt)
 street = input("What is your street? ")
 
