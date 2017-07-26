@@ -33,7 +33,7 @@ except json.JSONDecodeError as jSONDecodeError:
     print(jSONDecodeError)
     sys.exit(1)
 
-body = input("What is the celestial body you are looking for? ").title()
+body = input("What is the solar system body you are looking for? ").title()
 
 def printInfo(body):
     print("Here is some information about ", body, ":", sep = "")
