@@ -37,9 +37,9 @@ body = input("What is the solar system body you are looking for? ").title()
 
 def printInfo(body):
     print("Here is some information about ", body, ":", sep = "")
-    for i in range(len(solarsystem["sections"][body])):
-        dict = solarsystem["sections"][body][i]
-        print(dict["key"], ": ", dict["val"], sep = "")
+    for dictionary in solarsystem["sections"][body]:
+        print(dictionary["key"], ": ", dictionary["val"], sep = "")
+
 
 if body == "Pluto":
     print("Sorry,", body, "is no longer classified as a planet")
