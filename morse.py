@@ -39,33 +39,40 @@ def convPunct(punctuation):
     #left and right parentheses seem to be the same in morse code 
 
     punct = {
-        ",": "Comma",
-        ":": "Colon",
-        "?": "Question Mark",
-        "'": "Apostrophe",
-        "-": "Hyphen",
-        "/": "Forward slash",
-        "(": "Parentheses",
-        "\"": "Quotation Mark",
-        "@": "At sign",
-        "=": "Equals sign"
+        "Full stop": ".",
+        "Comma": ",",
+        "Colon": ":",
+        "Question Mark": "?",
+        "Apostrophe": "'",
+        "Hyphen": "-",
+        "Forward slash": "/",
+        "Parentheses": "(",
+        "Quotation Mark": "\"",
+        "At sign": "@",
+        "Equals sign": "="
         }
+ 
     return punct[punctuation]
 
+sections = morsecode["sections"]
+bigDictionary = {}
 
-morsechart = morsecode["sections"]["Alphabet"] + morsecode["sections"]["Digit"] + morsecode["sections"]["Punctuation Mark"]
+for charType in ("Alphabet", "Digit"):
+    for dictionary in sections[charType]:
+        bigDictionary[dictionary["key"]] = dictionary["val"]
+    for dictionary in sections["Punctuation Mark"]:
+            bigDictionary[convPunct(dictionary["key"])] = dictionary["val"]
 
 text = list(input("Input some text: ").upper())
 
 translated = []
-for i in text:
-    for dictionary in morsechart:
-        if i in ",:?'-/(\"(@-":
-            i = convPunct(i)  # python is interpretive so it will go on to next if statement with updated i value
-        if i == dictionary["key"]:
-            translated.append(dictionary["val"] + " ")
+for c in text:
+    if c == " ":
+        translated.append(c)
+    else:
+        translated.append(bigDictionary[c])
 
 print("Here is your text translated to Morse code: ")
-print("".join(translated))
+print(" ".join(translated))
 
 sys.exit(0)
