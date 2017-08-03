@@ -63,14 +63,10 @@ for charType in ("Alphabet", "Digit"):
 for dictionary in sections["Punctuation Mark"]:
     bigDictionary[convPunct(dictionary["key"])] = dictionary["val"]
 
+bigDictionary[" "] = " "
 text = list(input("Input some text: ").upper())
 
-translated = []
-for c in text:
-    if c == " ":
-        translated.append(c)
-    else:
-        translated.append(bigDictionary[c])
+translated = [bigDictionary[c] for c in text]
 
 print("Here is your text translated to Morse code: ")
 print(" ".join(translated))
