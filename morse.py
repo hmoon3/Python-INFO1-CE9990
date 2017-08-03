@@ -60,8 +60,8 @@ bigDictionary = {}
 for charType in ("Alphabet", "Digit"):
     for dictionary in sections[charType]:
         bigDictionary[dictionary["key"]] = dictionary["val"]
-    for dictionary in sections["Punctuation Mark"]:
-            bigDictionary[convPunct(dictionary["key"])] = dictionary["val"]
+for dictionary in sections["Punctuation Mark"]:
+    bigDictionary[convPunct(dictionary["key"])] = dictionary["val"]
 
 text = list(input("Input some text: ").upper())
 
