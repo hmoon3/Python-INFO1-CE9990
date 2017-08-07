@@ -95,11 +95,10 @@ class Date(object):
         else:
             if self.month > 1:
                 self.month -= 1
-                self.day = Date.lengths[self.month]  #Go to the last day of the previous month
             else:
-                self.month = 12        #Go to last month of the previous year
-                self.day = Date.lengths[self.month]
+                self.month = 12        #Go to last month of the previous year                
                 self.year -= 1
+            self.day = Date.lengths[self.month]
 
     def prevDays(self, n):
         "Move n days into the past."
